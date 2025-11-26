@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternal Infinity - AI Training | Courses | Spiritual Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1A1A2E;
+            --secondary: #6F2DBD;
+            --accent: #B88B4A;
+            --light: #F5F5F5;
+            --text-light: #E5E5E5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background: var(--primary);
+        }
+
+        header {
+            background: rgba(26, 26, 46, 0.95);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, #2D2D4A 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(111, 45, 189, 0.3), transparent);
+            border-radius: 50%;
+            top: -250px;
+            right: -250px;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--light);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(111, 45, 189, 0.4);
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--accent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(45, 45, 74, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(111, 45, 189, 0.3);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(111, 45, 189, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .about-content {
+            background: rgba(45, 45, 74, 0.4);
+            padding: 3rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: rgba(45, 45, 74, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(111, 45, 189, 0.3);
+        }
+
+        .course-card:hover {
+            transform: scale(1.05);
+        }
+
+        .course-header {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .course-body {
+            padding: 1.5rem;
+        }
+
+        .course-body ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .course-body li {
+            margin: 0.5rem 0;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(45, 45, 74, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(26, 26, 46, 0.8);
+            border: 1px solid rgba(111, 45, 189, 0.5);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: inherit;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: rgba(26, 26, 46, 0.95);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            background: rgba(45, 45, 74, 0.6);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(111, 45, 189, 0.3);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--accent);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .services-grid, .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Eternal Infinity</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Eternal Infinity</h1>
+            <p>AI Training | Online Courses | Spiritual Development</p>
+            <a href="#services" class="cta-button">Learn More</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <p style="margin-bottom: 1.5rem;">
+                <strong>Eternal Infinity</strong> is a dedicated company that combines technology and spirituality.
+                We help you develop skills in AI modeling, learn through our online courses, and grow spiritually.
+            </p>
+            <h3 style="color: var(--accent); margin: 2rem 0 1rem;">Our Mission</h3>
+            <p style="margin-bottom: 1.5rem;">
+                Our mission is to unite advanced technologies with spiritual development, so that both individuals
+                and organizations can grow in harmony with technology and themselves.
+            </p>
+            <h3 style="color: var(--accent); margin: 2rem 0 1rem;">Our Vision</h3>
+            <p>
+                We believe in a world where AI works in accordance with human values, and people use
+                technology to become more conscious, creative, and fulfilled.
+            </p>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🧠</div>
+                <h3>AI Training</h3>
+                <p>We develop and train AI models customized to your needs. We work with structured data,
+                generative models, NLP, and visual models.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📚</div>
+                <h3>Online Courses</h3>
+                <p>Interactive courses for learning artificial intelligence and spiritual practices.
+                Tailored for beginners and advanced users.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧘</div>
+                <h3>Spiritual Development</h3>
+                <p>We guide you through the path of self-discovery, meditation, and energy practices.
+                Workshops and group sessions for deep connection.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses">
+        <h2>Our Courses</h2>
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-header">
+                    <h3>Artificial Intelligence Fundamentals</h3>
+                </div>
+                <div class="course-body">
+                    <p><strong>Duration:</strong> 6 weeks</p>
+                    <p><strong>Level:</strong> Beginner</p>
+                    <p style="margin-top: 1rem;">You will learn:</p>
+                    <ul>
+                        <li>What is AI and how it works</li>
+                        <li>Neural networks</li>
+                        <li>Practical applications</li>
+                        <li>AI ethics</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="margin-top: 1rem; display: inline-block; padding: 0.5rem 1.5rem;">Enroll Now</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-header">
+                    <h3>Deep Learning</h3>
+                </div>
+                <div class="course-body">
+                    <p><strong>Duration:</strong> 8 weeks</p>
+                    <p><strong>Level:</strong> Advanced</p>
+                    <p style="margin-top: 1rem;">You will learn:</p>
+                    <ul>
+                        <li>CNN and RNN architectures</li>
+                        <li>Transfer learning</li>
+                        <li>Model optimization</li>
+                        <li>Deployment</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="margin-top: 1rem; display: inline-block; padding: 0.5rem 1.5rem;">Enroll Now</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-header">
+                    <h3>Meditation & Mindfulness</h3>
+                </div>
+                <div class="course-body">
+                    <p><strong>Duration:</strong> 4 weeks</p>
+                    <p><strong>Level:</strong> All levels</p>
+                    <p style="margin-top: 1rem;">You will learn:</p>
+                    <ul>
+                        <li>Meditation techniques</li>
+                        <li>Energy work</li>
+                        <li>Chakras and aura</li>
+                        <li>Mindfulness in daily life</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="margin-top: 1rem; display: inline-block; padding: 0.5rem 1.5rem;">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    How much do your courses cost?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Prices depend on the course and duration. Contact us for current information and special offers.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Do I need prior knowledge for AI courses?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    We have courses for absolute beginners and for those with experience. Each course clearly indicates the difficulty level.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    What does spiritual work look like with you?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    We work through guided sessions, workshops, and individual consultations. The focus is on practical techniques that you can use daily.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    What payment methods do you accept?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    We accept card payments, bank transfers, and PayPal. We also offer installment payment options.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="interest">Interested In</label>
+                <input type="text" id="interest" name="interest" placeholder="AI Course / Spiritual Development / Consultation">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Eternal Infinity. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Email: contact@eternalinfinity.com</p>
+    </footer>
+
+    <script>
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const allFaqItems = document.querySelectorAll('.faq-item');
+
+            allFaqItems.forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                    item.querySelector('span').textContent = '+';
+                }
+            });
+
+            faqItem.classList.toggle('active');
+            const span = element.querySelector('span');
+            span.textContent = faqItem.classList.contains('active') ? '-' : '+';
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will contact you soon.');
+            event.target.reset();
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
